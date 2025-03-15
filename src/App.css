@@ -1,0 +1,90 @@
+
+body {
+  font-family: 'nanumsquare';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  width: min(100vw, 46.1vh);
+  height: min(100vh, 216vw);
+  max-width: 430px;
+  max-height: 932px;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  /* border: 3px solid black; */
+}
+
+.orange-nav {
+  background: orange;
+  width: 100%;
+  display: flex;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+}
+.orange-nav h3 {
+  margin: 20px;
+}
+
+.show-map, .reload {
+  width: 40%;
+  background-color: rgb(255, 155, 146);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin: 5px;
+}
+
+/* .show-map {
+  background-color: ;
+} */
+
+.map {
+  width: 90%;
+  height: 30%;
+  border: 2px solid black;
+  margin: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
