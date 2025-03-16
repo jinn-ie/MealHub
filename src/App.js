@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import Login from './pages/Login';
 import useScroll from './hooks/useScroll';
 import logo from './logo.svg';
 import './App.css';
 import Trends from './components/Trends/Trends';
 
-function App() {
+
+function Home() {
 
   const containerRef = useRef(null); 
   useScroll(containerRef, "vertical"); // 세로 스크롤
@@ -14,6 +17,8 @@ function App() {
   const [showMap, setShowMap] = useState(false);
   const [isHeightChanged, setIsHeightChanged] = useState(false);
   const [isFixed, setIsFixed] = useState(true);
+
+  const navigate = useNavigate();
 
   const calculateTotalHeight = () => {  // 전체 높이 계산
     if (containerRef.current) {
@@ -35,7 +40,7 @@ function App() {
         <h3>MEALHUB</h3>
         <div className="nav-buttons">
           <button className="like">🤍</button>
-          <button className="my">🐻‍❄️</button>
+          <button className="my" onClick={() => navigate("/login")}>🐻‍❄️</button>
         </div>
       </div>
 
@@ -45,7 +50,7 @@ function App() {
           <button className='create-rec' onClick={() => {
             setShowRec(true);
             글제목변경('리액트');
-          }}>알려죠</button>
+          }}>추천 생성</button>
         </div>
       )}
 
@@ -72,6 +77,17 @@ function App() {
       
       <Trends isFixed={isFixed}/>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
   );
 }
 
