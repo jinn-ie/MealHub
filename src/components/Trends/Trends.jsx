@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import useScroll from '../../hooks/useScroll';
 import burger from './burger.png';  // 이미지 파일을 import
 import bibim from './bibim.png';  // 이미지 파일을 import
-import './Trends.css';
 
 const Trends = ({isFixed}) => {
     const containerRef = useRef(null); 

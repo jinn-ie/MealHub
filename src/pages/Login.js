@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./Login.css";
 
 function Login() {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -14,7 +13,7 @@ function Login() {
   };
 
   return (
-    <div className="Login">
+    <div className="App Login">
         <div className="orange-nav">
         <h3>MEALHUB</h3>
         </div>
