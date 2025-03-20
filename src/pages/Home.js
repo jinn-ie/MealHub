@@ -2,14 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Trends from '../components/Trends/Trends';
 import useScroll from '../hooks/useScroll';
-import logo from '../logo.svg';
+import sushi from '../sushi.jpg';
+import map from '../map.png';
 
 function Home() {
 
   const containerRef = useRef(null); 
   useScroll(containerRef, "vertical"); // 세로 스크롤
 
-  let [result, 글제목변경] = useState('리액트');
+  const [result, 글제목변경] = useState('초밥');
   const [showRec, setShowRec] = useState(false);
   const [showMap, setShowMap] = useState(false);
   const [isHeightChanged, setIsHeightChanged] = useState(false);
@@ -41,12 +42,19 @@ function Home() {
         </div>
       </div>
 
+      <div className='party'>
+        <span>정종욱</span>
+        <span>하천수</span>
+        <span>이서진</span>
+        <p>님과 함께합니다.</p>
+      </div>
+
       {!showRec && (
         <div className="rec">
           <h2>오늘 뭐 먹지?</h2>
           <button className='create-rec' onClick={() => {
             setShowRec(true);
-            글제목변경('리액트');
+            글제목변경('초밥'); //////////////////
           }}>추천 생성</button>
         </div>
       )}
@@ -54,7 +62,7 @@ function Home() {
       {showRec && (
         <div>
           <h2>오늘의 추천 메뉴는 '{ result }' !</h2>
-          <img src={ logo }/>
+          <img className='res-img' src={ sushi }/>
           <div className='buttons'>
           <button className="show-map" onClick={() => {
             setShowMap(true);
@@ -68,7 +76,8 @@ function Home() {
 
       {showMap && (
         <div className="map">
-          <p>지도</p>
+          {/* <p>지도</p> */}
+          <img className="map-img" src={ map }></img>
         </div>
       )}
       

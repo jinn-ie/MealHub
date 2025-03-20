@@ -23,7 +23,7 @@ const Trends = ({isFixed}) => {
             <div className="trend">
                 <img src={ burger }/>
                 <h5>{ trends[0] }</h5>
-                <p>이 버거란 말이다...</p>
+                <p>품절 대란 !</p>
             </div>
             <div className="trend">
                 <img src={ bibim }/>
