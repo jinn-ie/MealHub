@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -130,6 +130,7 @@ h2 {
   aspect-ratio: 1/1;
   border-radius: 30px;
   margin: 7px;
+  padding: 3px;
   text-align: center;
   background: white;
 }
@@ -189,49 +190,57 @@ label {
   display: inline-block;
 }
 
-.input, input {
+input {
   width: 80%;
   height: 30px;
   border-radius: 15px;
   border: none;
   padding: 5px;
-  margin: 5px;
+  margin: 5px 0px;
   display: flex;
 }
 
-.input{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-}
 .br {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   box-sizing: border-box;
 }
-.input p {
-  margin: 10px;
-}
-.input input {
-  width: 100%;
-  margin: 0px -5px;
+
+.input-group {
+  width: 80%;
+  height: 40px;
+  padding: 0px;
+  margin: 5px 0px;
+  display: flex;
 }
 
-.input .check {
+.sub {
+  width: 100%;
+  margin: 0px;
+}
+
+.input-group .email {
+  margin: 0px 0px;
+}
+
+.input-group .ap{
+  margin: 0% 3%;
+}
+
+.input-group .check {
   height: 16px;
   width: 16px;
   margin-right: 5px;
 }
-.input label {
+.input-group label {
   display: flex;
   width: 30%;
-  font-size: 12px;
+  font-size: 13px;
   margin: 0px 0px;
   margin-right: 5px;
-
+  align-items: center;
 }
 
 .submit {

@@ -24,7 +24,7 @@ function Signup2() {
         <form className="login-form signup2" onSubmit={handleSubmit}>
             <div className="form-group">
                 <label>성별</label>
-                    <div className="input">
+                    <div className="input-group">
                     <label><input type="radio" className="check" name="sex" onChange={handleChange} />남성</label>
                     <label><input type="radio" className="check" name="sex" onChange={handleChange} />여성</label>
                     </div>
@@ -35,7 +35,7 @@ function Signup2() {
             </div>
             <div className="form-group">
                 <label>알레르기</label>
-                    <div className="input">
+                    <div className="input-group">
                     <label><input type="checkbox" className="check" name="allergy" value="난류" onChange={handleChange} />난류</label>
                     <label><input type="checkbox" className="check" name="allergy" value="우유" onChange={handleChange} />우유</label>
                     <label><input type="checkbox" className="check" name="allergy" value="땅콩" onChange={handleChange} />땅콩</label>
@@ -44,12 +44,12 @@ function Signup2() {
             <div className="form-group">
                 <label>선호<br/>카테고리</label>
                 <div className="br">
-                    <div className="input">
+                    <div className="input-group sub">
                     <label><input type="checkbox" className="check" name="category" value="한식" onChange={handleChange} />한식</label>
                     <label><input type="checkbox" className="check" name="category" value="중식" onChange={handleChange} />중식</label>
                     <label><input type="checkbox" className="check" name="category" value="일식" onChange={handleChange} />일식</label>
                     </div>
-                    <div className="input">
+                    <div className="input-group sub">
                     <label><input type="checkbox" className="check" name="category" value="양식" onChange={handleChange} />양식</label>
                     <label><input type="checkbox" className="check" name="category" value="분식" onChange={handleChange} />분식</label>
                     </div>

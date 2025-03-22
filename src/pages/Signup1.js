@@ -24,10 +24,10 @@ function Signup1() {
         <form className="login-form signup1" onSubmit={handleSubmit}>
             <div className="form-group">
                 <label>e-mail</label>
-                    <div className="input">
-                        <input type="email" name="username" onChange={handleChange} />
-                        <p>@</p>
-                        <input type="text" name="domain" list="domainList"></input>
+                    <div className="input-group">
+                        <input type="text" className="email" name="username" onChange={handleChange} />
+                        <p className="ap">@</p>
+                        <input type="text" className="email" name="domain" list="domainList"></input>
                         <datalist id="domainList">
                             <option value="naver.com" />
                             <option value="daum.net" />
