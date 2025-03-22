@@ -10,7 +10,9 @@ function Home() {
   const containerRef = useRef(null); 
   useScroll(containerRef, "vertical"); // 세로 스크롤
 
+  const [participants, setParticipants] = useState(['정종욱', '하천수', '이서진']);
   const [result, 글제목변경] = useState('초밥');
+  const [showParty, setShowParty] = useState(true);
   const [showRec, setShowRec] = useState(false);
   const [showMap, setShowMap] = useState(false);
   const [isHeightChanged, setIsHeightChanged] = useState(false);
@@ -25,6 +27,18 @@ function Home() {
       return totalHeight;
     }
   }
+
+  const removeParticipant = (name) => {
+    setParticipants((prevParticipants) => 
+      prevParticipants.filter((participant) => participant !== name)
+    );
+  }
+
+  useEffect(() => {
+    if (participants.length === 0) {
+      setShowParty(false);
+    }
+  }, [participants]);
 
   useEffect(() => {
     if (calculateTotalHeight() <= window.innerHeight) setIsFixed(true);
@@ -42,12 +56,14 @@ function Home() {
         </div>
       </div>
 
-      <div className='party'>
-        <span>정종욱</span>
-        <span>하천수</span>
-        <span>이서진</span>
+      {showParty && ( 
+        <div className='party'>
+        {participants.map((participants, index) => (
+          <span onClick={() => removeParticipant(participants)} key={index}>{participants}</span>
+        ))}
         <p>님과 함께합니다.</p>
       </div>
+      )}
 
       {!showRec && (
         <div className="rec">
