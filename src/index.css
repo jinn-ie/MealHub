@@ -50,6 +50,23 @@ code {
   font-size: 20px;
 }
 
+.my:hover::after {
+  content: '게스트'; /* 버튼에 마우스를 올렸을 때 나타낼 텍스트 */
+  position: absolute;
+  top: 100%; /* 버튼 아래쪽에 위치 */
+  left: 50%;
+  transform: translateX(-50%); /* 수평 중앙 정렬 */
+  margin-top: 5px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #333;
+  white-space: nowrap;
+  width: auto;
+  padding: 5px 5px;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */  
+}
+
 .party {
   margin: 10px;
   padding: 8px;
