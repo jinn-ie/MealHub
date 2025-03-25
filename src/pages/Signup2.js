@@ -30,8 +30,28 @@ function Signup2() {
                     </div>
             </div>
             <div className="form-group">
-                <label>생년월일</label>
-                <input type="date" name="password" onChange={handleChange} />
+                <label>나이대</label>
+                <div className="input-group">
+                <input type="text" className="age1" list="age1" onChange={handleChange} />
+                <input type="text" className="age2" list="age2" onChange={handleChange}></input>
+                
+                <datalist id="age1">
+                  <option value="10대" />
+                  <option value="20대" />
+                  <option value="30대" />
+                  <option value="40대" />
+                  <option value="50대" />
+                  <option value="60대" />
+                  <option value="70대" />
+                  <option value="80대" />
+                  <option value="90대" />
+                </datalist>
+                <datalist id="age2">
+                  <option value="초반" />
+                  <option value="중반" />
+                  <option value="후반" />
+                </datalist>
+                </div>
             </div>
             <div className="form-group">
                 <label>알레르기</label>
@@ -41,7 +61,7 @@ function Signup2() {
                     <label><input type="checkbox" className="check" name="allergy" value="땅콩" onChange={handleChange} />땅콩</label>
                     </div>
             </div>
-            <div className="form-group">
+            <div className="form-group category">
                 <label>선호<br/>카테고리</label>
                 <div className="br">
                     <div className="input-group sub">

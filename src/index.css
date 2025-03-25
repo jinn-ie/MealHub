@@ -93,6 +93,7 @@ h2 {
 }
 
 .create-rec, .show-map, .reload {
+  font-family: 'Noto Sans KR', sans-serif;
   width: 44%;
   background-color: rgb(255, 155, 146);
   color: white;
@@ -198,6 +199,9 @@ h2 {
   display: flex;
   align-items: center;
 }
+.form-group:not(.category){
+  height: 50px;
+}
 
 label {
   width: 30%;
@@ -261,6 +265,7 @@ input {
 }
 
 .submit {
+  font-family: 'Noto Sans KR', sans-serif;
   width: 44%;
   background-color: rgb(255, 155, 146);
   color: white;
@@ -287,3 +292,6 @@ input {
   height: 50%;
 }
 
+.age1 {
+  margin-right: 10px;
+}
