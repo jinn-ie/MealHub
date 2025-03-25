@@ -22,12 +22,12 @@ function Signup1() {
         </div>
         <h2>회원가입</h2>
         <form className="login-form signup1" onSubmit={handleSubmit}>
-            <div className="form-group">
+            {/* <div className="form-group">
                 <label>e-mail</label>
-                    <div className="input-group">
-                        <input type="text" className="email" name="username" onChange={handleChange} />
-                        <p className="ap">@</p>
-                        <input type="text" className="email" name="domain" list="domainList"></input>
+                    <div className="input">
+                        <input type="email" name="username" onChange={handleChange} />
+                        <p>@</p>
+                        <input type="text" name="domain" list="domainList"></input>
                         <datalist id="domainList">
                             <option value="naver.com" />
                             <option value="daum.net" />
@@ -36,14 +36,19 @@ function Signup1() {
                             <option value="pusan.ac.kr" />
                         </datalist>
                     </div>
+            </div> */}
+            
+            <div className="form-group">
+                <label>닉네임</label>
+                <input type="text" onChange={handleChange} />
             </div>
             <div className="form-group">
                 <label>비밀번호</label>
-                <input type="password" name="password" onChange={handleChange} />
+                <input type="password" onChange={handleChange} />
             </div>
             <div className="form-group">
                 <label>비밀번호 확인</label>
-                <input type="password" name="password" onChange={handleChange} />
+                <input type="password" className="checkpwd" onChange={handleChange} />
             </div>
             <button className="submit" type="submit" onClick={() => navigate("/signup2")}>다음</button>
             <a onClick={() => navigate("/login")}>계정이 있으시다면? 로그인</a>
