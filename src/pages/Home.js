@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Trends from '../components/Trends/Trends';
+import Map from '../components/Map';
 import useScroll from '../hooks/useScroll';
 import sushi from '../sushi.jpg';
-import map from '../map.png';
+
 
 function Home() {
 
@@ -91,10 +92,7 @@ function Home() {
 
 
       {showMap && (
-        <div className="map">
-          {/* <p>지도</p> */}
-          <img className="map-img" src={ map }></img>
-        </div>
+        <Map />
       )}
       
       <Trends isFixed={isFixed}/>
