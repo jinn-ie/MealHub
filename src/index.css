@@ -302,13 +302,34 @@ input {
   height: 50%;
 }
 
-.age1 {
-  margin-right: 10px;
+.age1, .id {
+  margin-right: 8px;
 }
 
-.age1, .age2 {
+.age1, .age2, .id {
   margin-top: 0px;
 }
+
+.checkid {
+  border: none;
+  border-radius: 10px;
+  font-size: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+  width: 20%;
+  background-color: rgba(224, 200, 180, 0.47);
+  /* color: white; */
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 .map_wrap, .map_wrap * {
