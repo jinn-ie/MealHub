@@ -6,7 +6,7 @@ const Map = () => {
     const latitude = 37.5665;
     const longitude = 126.9780;
     const apiKey = process.env.REACT_APP_KAKAO_API_KEY;
-    const [keyword, setKeyword] = useState("부산대 초밥"); // 키워드 상태 관리
+    const [keyword, setKeyword] = useState("시청역 초밥"); // 키워드 상태 관리
     const [map, setMap] = useState(null); // map 객체 상태 관리
     const [markers, setMarkers] = useState([]); // markers 상태 관리
 
@@ -21,11 +21,10 @@ const Map = () => {
                     const container = mapContainer.current;
                     const options = {
                         center: new window.kakao.maps.LatLng(latitude, longitude), // 위치 수정
-                        level: 3,
+                        level: 6,
                     };
                     const initializedMap = new window.kakao.maps.Map(container, options); // 맵 초기화
                     setMap(initializedMap); // map 객체 상태에 저장
-                    searchPlaces(initializedMap); // 맵 초기화 후 검색 실행
                 });
             } else {
                 console.error("Kakao Maps API 로드 실패!");
@@ -38,6 +37,12 @@ const Map = () => {
             document.head.removeChild(script);
         };
     }, [apiKey]);
+
+    useEffect(() => {
+        if (map) {
+            searchPlaces(map);
+        }
+    }, [map]);
 
     // 키워드로 장소 검색하는 함수
     const searchPlaces = (map) => {
@@ -53,6 +58,8 @@ const Map = () => {
             if (status === window.kakao.maps.services.Status.OK) {
                 displayPlaces(data, map, infowindow); // 검색 결과 처리
                 displayPagination(pagination);
+                console.log('aaa',markers);
+
             } else if (status === window.kakao.maps.services.Status.ZERO_RESULT) {
                 alert('검색 결과가 존재하지 않습니다.');
                 return;
@@ -77,7 +84,6 @@ const Map = () => {
             const placePosition = new window.kakao.maps.LatLng(place.y, place.x);
             const marker = addMarker(placePosition, i, place.place_name);
             const itemEl = getListItem(i, place);
-
             bounds.extend(placePosition);
 
             (function (marker, title) {
@@ -104,7 +110,7 @@ const Map = () => {
         listEl.appendChild(fragment);
         menuEl.scrollTop = 0;
 
-        map.setBounds(bounds); // 지도 범위 재설정
+        //map.setBounds(bounds); // 지도 범위 재설정
     };
 
         // 장소 목록을 반환하는 함수 (getListItem 추가)
@@ -123,9 +129,6 @@ const Map = () => {
                 itemStr +=
                 '    <span>' +
                 place.road_address_name +
-                '</span>' +
-                '   <span class="jibun gray">' +
-                place.address_name +
                 '</span>';
             } else {
                 itemStr += '    <span>' + place.address_name + '</span>';
@@ -142,10 +145,10 @@ const Map = () => {
     // 마커를 생성하는 함수
     const addMarker = (position, idx, title) => {
         const imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png';
-        const imageSize = new window.kakao.maps.Size(36, 37);
+        const imageSize = new window.kakao.maps.Size(26, 27);
         const imgOptions = {
-            spriteSize: new window.kakao.maps.Size(36, 691),
-            spriteOrigin: new window.kakao.maps.Point(0, idx * 46 + 10),
+            spriteSize: new window.kakao.maps.Size(26, 500),
+            spriteOrigin: new window.kakao.maps.Point(0, idx * 33 + 7),
             offset: new window.kakao.maps.Point(13, 37),
         };
         const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions);
@@ -155,6 +158,7 @@ const Map = () => {
         });
 
         marker.setMap(map);
+        console.log("ppp",marker,map);
         setMarkers((prevMarkers) => [...prevMarkers, marker]); // 마커 상태 업데이트
 
         return marker;
@@ -197,7 +201,7 @@ const Map = () => {
 
     // 인포윈도우를 표시하는 함수
     const displayInfowindow = (marker, title, infowindow) => {
-        const content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
+        const content = '<div style="padding:3px;z-index:0;font-size:10px;">' + title + '</div>';
         infowindow.setContent(content);
         infowindow.open(map, marker);
     };
@@ -212,16 +216,16 @@ const Map = () => {
     };
 
     const handleInputChange = (e) => {
+        console.log(e.target.value);
         setKeyword(e.target.value);
     };
 
     return (
-        <div>
+        <div className="map_wrap">
             <div ref={mapContainer} id="map" className="map"></div>
             <div id="menu_wrap" className="bg_white">
-                <div className="option">
-                    <form onSubmit={(e) => { e.preventDefault(); searchPlaces(map); }}>
-                        키워드:
+                {/* <div className="option">
+                    <form id="search" onSubmit={(e) => { e.preventDefault(); searchPlaces(map); }}>
                         <input
                             type="text"
                             value={keyword}
@@ -229,10 +233,10 @@ const Map = () => {
                             id="keyword"
                             size="15"
                         />
-                        <button type="submit">검색하기</button>
+                        <button id="search-btn" type="submit">🔍</button>
                     </form>
                 </div>
-                <hr />
+                <hr /> */}
                 <ul id="placesList"></ul>
                 <div id="pagination"></div>
             </div>

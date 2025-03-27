@@ -110,9 +110,19 @@ h2 {
   margin-bottom: 10px;
 }
 
-.map {
+.map-wrap {
   width: 90%;
   height: 30%;
+  /* border: 2px solid black; */
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
   /* border: 2px solid black; */
   margin: 5%;
   display: flex;
@@ -304,7 +314,6 @@ input {
 .map_wrap, .map_wrap * {
   margin: 0;
   padding: 0;
-  font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
   font-size: 12px;
 }
 
@@ -316,7 +325,7 @@ input {
 .map_wrap {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 30%;
 }
 
 #menu_wrap {
@@ -324,8 +333,8 @@ input {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 250px;
-  margin: 10px 0 30px 10px;
+  width: 35%;
+  margin: 5px 0px 5px 5px;
   padding: 5px;
   overflow-y: auto;
   background: rgba(255, 255, 255, 0.7);
@@ -367,12 +376,14 @@ input {
   border-bottom: 1px solid #888;
   overflow: hidden;
   cursor: pointer;
-  min-height: 65px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
 }
 
 #placesList .item span {
   display: block;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 #placesList .item h5,
@@ -380,92 +391,91 @@ input {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  font-size: 11px;
 }
 
 #placesList .item .info {
-  padding: 10px 0 10px 55px;
+  padding: 0px 0 0px 25px;
+  
 }
 
 #placesList .info .gray {
   color: #8a8a8a;
 }
 
-#placesList .info .jibun {
-  padding-left: 26px;
-  background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;
-}
-
 #placesList .info .tel {
   color: #009900;
+  font-size: 10px;
 }
 
 #placesList .item .markerbg {
   float: left;
   position: absolute;
   width: 36px;
-  height: 37px;
-  margin: 10px 0 0 10px;
+  height: 27px;
+  margin: 0px;
   background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;
+  background-size: 72% auto;
 }
 
 #placesList .item .marker_1 {
-  background-position: 0 -10px;
+  background-position: 0 -7px;
 }
 
 #placesList .item .marker_2 {
-  background-position: 0 -56px;
+  background-position: 0 -40px;
 }
 
 #placesList .item .marker_3 {
-  background-position: 0 -102px;
+  background-position: 0 -73px;
 }
 
 #placesList .item .marker_4 {
-  background-position: 0 -148px;
+  background-position: 0 -106px;
 }
 
 #placesList .item .marker_5 {
-  background-position: 0 -194px;
+  background-position: 0 -139px;
 }
 
 #placesList .item .marker_6 {
-  background-position: 0 -240px;
+  background-position: 0 -172px;
 }
 
 #placesList .item .marker_7 {
-  background-position: 0 -286px;
+  background-position: 0 -205px;
 }
 
 #placesList .item .marker_8 {
-  background-position: 0 -332px;
+  background-position: 0 -238px;
 }
 
 #placesList .item .marker_9 {
-  background-position: 0 -378px;
+  background-position: 0 -271px;
 }
 
 #placesList .item .marker_10 {
-  background-position: 0 -423px;
+  background-position: 0 -304px;
 }
 
 #placesList .item .marker_11 {
-  background-position: 0 -470px;
+  background-position: 0 -337px;
 }
 
 #placesList .item .marker_12 {
-  background-position: 0 -516px;
+  background-position: 0 -370px;
 }
 
 #placesList .item .marker_13 {
-  background-position: 0 -562px;
+  background-position: 0 -403px;
 }
 
 #placesList .item .marker_14 {
-  background-position: 0 -608px;
+  background-position: 0 -436px;
 }
 
 #placesList .item .marker_15 {
-  background-position: 0 -654px;
+  background-position: 0 -469px;
 }
 
 #pagination {
@@ -482,4 +492,21 @@ input {
   font-weight: bold;
   cursor: default;
   color: #777;
+}
+
+#search {
+  display: flex;
+}
+
+#keyword {
+  width: 80%;
+  height: 20px;
+  padding: 2px;
+}
+
+#search-btn {
+  width: 15%;
+  border: none;
+  border-radius: 3px;
+  font-size: 15px;
 }
