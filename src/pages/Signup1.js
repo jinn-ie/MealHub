@@ -13,12 +13,9 @@ function Signup1() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
 
     // 유효성 검사
-
     let validationError = "";
-    console.log(validationError);
 
     if (!formData.id) {
         validationError = "아이디를 입력해주세요.";
@@ -40,15 +37,12 @@ function Signup1() {
         setError(validationError); // 에러 메시지 설정
         return; // 에러가 있으면 제출하지 않음
     }
-
-    console.log("회원가입 데이터:", formData);
     navigate("/signup2");
   };
 
   useEffect(() => {
     if(error!==null){
       alert(error);
-      console.log("error:", error);
     }
   }, [error]);
 
