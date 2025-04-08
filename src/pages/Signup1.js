@@ -21,8 +21,20 @@ function Signup1() {
         validationError = "아이디를 입력해주세요.";
     }
 
+    else if (!formData.id.match(/^[a-zA-Z0-9]{4,12}$/)) {
+        validationError = "아이디는 4~12자의 영문 대소문자와 숫자로만 구성되어야 합니다.";
+    }
+
     else if (!formData.pwd) {
         validationError = "비밀번호를 입력해주세요.";
+    }
+
+    else if (!formData.pwd.match(/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/)) {
+        validationError = "비밀번호는 8~16자 영문 대소문자와 숫자로만 구성되어야 합니다.";
+    }
+
+    else if (/\s/.test(formData.pwd)) {
+        validationError = "비밀번호는 공백을 포함할 수 없습니다.";
     }
 
     else if (!formData.checkpwd) {
@@ -41,9 +53,10 @@ function Signup1() {
   };
 
   useEffect(() => {
-    if(error!==null){
+    if(error !== null){
       alert(error);
     }
+    setError(null); // 에러 메시지 초기화
   }, [error]);
 
   return (
@@ -73,7 +86,7 @@ function Signup1() {
                 <label>ID</label>
                 <div className="input-group">
                 <input type="text" className="id" name="id" onChange={handleChange} />
-                <button className="checkid">중복 확인</button>
+                <div className="checkid">중복<br/>확인</div>
                 </div>
             </div>
             <div className="form-group">

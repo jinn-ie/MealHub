@@ -267,8 +267,8 @@ input {
 }
 .input-group label {
   display: flex;
-  width: 30%;
-  font-size: 13px;
+  width: 34%;
+  font-size: 12px;
   margin: 0px 0px;
   margin-right: 5px;
   align-items: center;
@@ -317,6 +317,9 @@ input {
   font-family: 'Noto Sans KR', sans-serif;
   width: 20%;
   background-color: rgba(224, 200, 180, 0.47);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* color: white; */
 }
 
