@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import useLogin from "../hooks/useLogin";
 
 function Login() {
   const navigate = useNavigate();
 
+  const { login, loading, err } = useLogin();
   const [formData, setFormData] = useState({id: "", pwd: ""});
   const [error, setError] = useState(null);
 
@@ -11,7 +13,7 @@ function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
   
     // 유효성 검사
@@ -29,6 +31,18 @@ function Login() {
         setError(validationError); // 에러 메시지 설정
         return; // 에러가 있으면 제출하지 않음
     }
+
+    // const user = await login(formData.id, formData.pwd);
+
+    // if (loading) {
+    //   alert("로딩중입니다.");
+    // }
+    // if (user) {
+    //   localStorage.setItem("user", JSON.stringify(user));
+    //   console.log(localStorage.getItem("user"));
+    //   alert("로그인 성공");
+    //   navigate("/");
+    // }
     navigate("/");
   };
 
